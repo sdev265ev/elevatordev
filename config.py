@@ -11,6 +11,8 @@
 import socket
 import datetime
 import time
+import pygame
+
 DEBUGLEVEL = 3
 
 
@@ -60,8 +62,18 @@ def send(message, ip, port = 5005):
 
 def log(message, level = 1):
 	if DEBUGLEVEL > level:
-		print (message)
 		#sys.stdout.flush()
 		ip = '127.0.0.1'
 		now = datetime.datetime.now()
 		message += str(now) +' | ' + message + ' | ' + MasterIpAddress
+		print (message)
+
+"""
+def play_sound(file):
+	pygame.mixer.init()
+	try:
+		sound = pygame.mixer.Sound(file)
+		sound.play()
+	except IOError:
+		log('Error opening sound file.')
+"""
